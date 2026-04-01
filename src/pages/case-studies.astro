@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const caseStudies = [
+  {
+    id: 'respiratory-distress',
+    title: 'Acute Respiratory Distress',
+    category: 'Respiratory',
+    summary: 'A 68-year-old patient presents with shortness of breath and decreased oxygen saturation.',
+  },
+  {
+    id: 'cardiac-assessment',
+    title: 'Cardiac Assessment',
+    category: 'Cardiovascular',
+    summary: 'A 55-year-old patient with chest pain and elevated troponin levels requiring urgent evaluation.',
+  },
+  {
+    id: 'diabetic-emergency',
+    title: 'Diabetic Emergency',
+    category: 'Endocrine',
+    summary: 'A 42-year-old type 1 diabetic patient presents with altered mental status and hyperglycemia.',
+  },
+];
+---
+<Layout title="Case Studies | HESI Patient Reviews" description="Browse HESI nursing case studies">
+  <h1 style="font-size:2rem; font-weight:700; margin-bottom:0.5rem;">Case Studies</h1>
+  <p style="color:#555; margin-bottom:2rem;">
+    Explore detailed patient scenarios to sharpen your clinical reasoning skills.
+  </p>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap:1.5rem;">
+    {caseStudies.map((cs) => (
+      <article style="background:#fff; border:1px solid #e2e8f0; border-radius:8px; padding:1.5rem; box-shadow:0 1px 3px rgba(0,0,0,.06);">
+        <span style="font-size:0.75rem; font-weight:600; text-transform:uppercase; color:#6366f1; letter-spacing:.05em;">
+          {cs.category}
+        </span>
+        <h2 style="font-size:1.1rem; font-weight:700; margin:0.4rem 0 0.6rem;">{cs.title}</h2>
+        <p style="color:#555; font-size:0.95rem;">{cs.summary}</p>
+      </article>
+    ))}
+  </div>
+</Layout>
